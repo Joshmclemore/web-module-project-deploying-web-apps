@@ -42,7 +42,7 @@ const AddNewStudent = (props) => {
 
     return (
         <>
-            <h2>Add New Student Component</h2>
+            <h2>Add New Student</h2>
             <form onSubmit={handleSubmit}>
                 <label>NAME:
                     <input
