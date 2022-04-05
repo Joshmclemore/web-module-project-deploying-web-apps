@@ -32,8 +32,8 @@ const AddNewStudent = (props) => {
     }, [values])
 
     const toggleDisabled = () => {
-        if (values.name.trim().length > 1 && values.age.trim().length > 1
-        && values.grade.trim().length > 1) {
+        if (values.name.trim().length > 1 && values.age.trim().length > 0
+        && values.grade.trim().length > 0) {
             setDisabled(false)
         } else {
             setDisabled(true)
