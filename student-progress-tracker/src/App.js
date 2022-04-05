@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div id='header-title'>
-          <h2>STUDENT PROGRESS TRACKER</h2>
+          <h2>STUDENT TRACKER</h2>
         </div>
         <nav>
           <Link className='links' to="/">HOME</Link>
