@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 // components
@@ -7,15 +7,6 @@ import AddNewStudent from './Components/AddNewStudent';
 import CurrentStudents from './Components/CurrentStudents';
 import Welcome from './Components/Welcome';
 
-
-const initialValues = {
-  name : "",
-  age : "",
-  grade : "",
-  // commands: [], // array of objects {command/"sit": (number hooked to button)}
-  // oldGoals: [], // array of objects {goal/"sit for 10 min": "accomplished 3/31"}
-  // newGoals: [], // array of strings "stop yelling at recess" (with "completed" button ^)
-}
 
 const exampleStudent = {
   name : "Bill",
@@ -27,23 +18,15 @@ const exampleStudent = {
 }
 
 function App() {
+  
+  const navigate = useNavigate();
 
-  const [studentInfo, setStudentInfo] = useState(initialValues)
   const [students, setStudents] = useState([exampleStudent])
 
-  const onChange = (evt) => {
-    setStudentInfo({...studentInfo, [evt.target.name]: evt.target.value})
-    console.log("onChange info:", studentInfo)
+  const onSubmit = (newStudent) => {
+    setStudents([...students, newStudent]);
+    navigate('/students')
   }
-
-  const onSubmit = () => {
-    setStudents([...students, studentInfo]);
-    setStudentInfo({initialValues})
-    console.log("onSubmit students:", students)
-    console.log("onSubmit info:", studentInfo)
-  }
-
-
 
   return (
     <div className="App">
@@ -68,8 +51,6 @@ function App() {
 
         <Route element={
           <AddNewStudent 
-          studentInfo={studentInfo}
-          change={onChange} 
           submit={onSubmit} 
           />} path='/students/add' />
       </Routes>

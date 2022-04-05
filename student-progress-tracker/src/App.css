@@ -45,11 +45,34 @@ h2 {
   background-color: #282c34;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  display: block;
+  background-color: lightgray;
+  margin: 10px;
+  color: black;
+}
+
+
+#add-submit {
+  border: 2px lightgray inset;
+  color: black;
+  background-color: lightblue;
+}
+
+#add-submit:disabled {
+  border: none;
+  background-color: gray;
+}
+
+@media (max-width: 250px ) {
+  nav {
+    display: flex;
+    flex-direction: column;
   }
 }
