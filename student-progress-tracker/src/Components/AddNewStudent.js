@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
     name : "",
@@ -10,6 +11,8 @@ const initialValues = {
   }
 
 const AddNewStudent = (props) => {
+
+    const navigate = useNavigate();
 
     const { submit } = props
 
@@ -25,6 +28,7 @@ const AddNewStudent = (props) => {
         event.preventDefault();
         submit(values);
         setValues(initialValues);
+        navigate('/students');
     }
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 // components
@@ -18,14 +18,11 @@ const exampleStudent = {
 }
 
 function App() {
-  
-  const navigate = useNavigate();
 
   const [students, setStudents] = useState([exampleStudent])
 
   const onSubmit = (newStudent) => {
     setStudents([...students, newStudent]);
-    navigate('/students')
   }
 
   return (
@@ -43,7 +40,6 @@ function App() {
 
       <Routes>
         <Route element={<Welcome/>} exact path='/' />
-
         <Route element={
           <CurrentStudents
             students={students}
